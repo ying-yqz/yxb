@@ -26,7 +26,7 @@ const routes = [
     name: 'goods',
     component: () => import('./view/goods'),
     meta: {
-      title: '商品详情'
+      title: '身份校验'
     }
   }
 ];
