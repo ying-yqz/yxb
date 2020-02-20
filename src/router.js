@@ -6,24 +6,24 @@ Vue.use(Router);
 const routes = [
   {
     path: '*',
-    redirect: '/goods'
+    redirect: '/code'
   },
   {
-    name: 'user',
+    name: 'love',
     component: () => import('./view/user'),
     meta: {
-      title: '会员中心'
+      title: 'love'
     }
   },
   {
-    name: 'cart',
+    name: 'cute',
     component: () => import('./view/cart'),
     meta: {
-      title: '购物车'
+      title: 'love'
     }
   },
   {
-    name: 'goods',
+    name: 'code',
     component: () => import('./view/goods'),
     meta: {
       title: '身份校验'

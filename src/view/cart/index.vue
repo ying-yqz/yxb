@@ -1,119 +1,213 @@
 <template>
-  <div>
-    <van-checkbox-group class="card-goods" v-model="checkedGoods">
-      <van-checkbox
-        class="card-goods__item"
-        v-for="item in goods"
-        :key="item.id"
-        :name="item.id"
-      >
-        <van-card
-          :title="item.title"
-          :desc="item.desc"
-          :num="item.num"
-          :price="formatPrice(item.price)"
-          :thumb="item.thumb"
-        />
-      </van-checkbox>
-    </van-checkbox-group>
-    <van-submit-bar
-      :price="totalPrice"
-      :disabled="!checkedGoods.length"
-      :button-text="submitBarText"
-      @submit="onSubmit"
-    />
+  <div class='bg'>
+    <div class="rect-wrap">
+      <!-- //舞台元素，设置perspective，让其子元素获得透视效果。 -->
+      <div class="container">
+        <!-- //容器，设置transform-style: preserve-3d，让其子元素在3D空间呈现 -->
+        <div class="top slide">
+          <img class="size" src="../../images/girl1.jpg" alt="">
+        </div>
+        <!-- //立方体的六个面 -->
+        <div class="bottom slide">
+          <img class="size" src="../../images/girl2.jpg" alt="">
+        </div>
+        <div class="left slide">
+          <img class="size" src="../../images/星空.jpg" alt="">
+        </div>
+        <div class="right slide">
+          <img class="size" src="../../images/情侣.jpg" alt="">
+        </div>
+        <div class="front slide">
+          <img class="size" src="../../images/love1.jpg" alt="">
+        </div>
+        <div class="back slide">
+          <img class="size" src="../../images/星空.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class='letter' @click='tolove'>
+      <img src="../../images/信.png" alt="">
+    </div>
+
+    <div class='tell'>我想告诉你</div>
   </div>
 </template>
 
 <script>
-import { Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from 'vant';
+// import { Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from 'vant';
 
 export default {
-  components: {
-    [Card.name]: Card,
-    [Checkbox.name]: Checkbox,
-    [SubmitBar.name]: SubmitBar,
-    [CheckboxGroup.name]: CheckboxGroup
-  },
+  // components: {
+  //   [Card.name]: Card,
+  //   [Checkbox.name]: Checkbox,
+  //   [SubmitBar.name]: SubmitBar,
+  //   [CheckboxGroup.name]: CheckboxGroup
+  // },
 
   data() {
-    return {
-      checkedGoods: ['1', '2', '3'],
-      goods: [{
-        id: '1',
-        title: '进口香蕉',
-        desc: '约250g，2根',
-        price: 200,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/2f9a36046449dafb8608e99990b3c205.jpeg'
-      }, {
-        id: '2',
-        title: '陕西蜜梨',
-        desc: '约600g',
-        price: 690,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg'
-      }, {
-        id: '3',
-        title: '美国伽力果',
-        desc: '约680g/3个',
-        price: 2680,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/320454216bbe9e25c7651e1fa51b31fd.jpeg'
-      }]
-    };
+    return {};
   },
 
-  computed: {
-    submitBarText() {
-      const count = this.checkedGoods.length;
-      return '结算' + (count ? `(${count})` : '');
-    },
-
-    totalPrice() {
-      return this.goods.reduce((total, item) => total + (this.checkedGoods.indexOf(item.id) !== -1 ? item.price : 0), 0);
-    }
-  },
+  computed: {},
 
   methods: {
-    formatPrice(price) {
-      return (price / 100).toFixed(2);
-    },
-
-    onSubmit() {
-      Toast('点击结算');
+    tolove() {
+      this.$router.push('love');
     }
   }
 };
 </script>
 
 <style lang="less">
-.card-goods {
-  padding: 10px 0;
-  background-color: #fff;
-
-  &__item {
-    position: relative;
-    background-color: #fafafa;
-
-    .van-checkbox__label {
-      width: 100%;
-      height: auto; // temp
-      padding: 0 10px 0 15px;
-      box-sizing: border-box;
-    }
-
-    .van-checkbox__icon {
-      top: 50%;
-      left: 10px;
-      z-index: 1;
-      position: absolute;
-      margin-top: -10px;
-    }
-
-    .van-card__price {
-      color: #f44;
-    }
+.bg {
+  height: 100vh;
+  background-image: url('../../images/背景2.jpg');
+  background-size: cover;
+}
+.rect-wrap {
+  position: relative;
+  perspective: 2000px;
+}
+.container {
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% 100px; /* //设置3d空间的原点在平面中心再向Z轴移动200px的位置 */
+  /* left: 50%;
+        margin-left: -200px; */
+  top: 100px;
+}
+.size {
+  width: 200px;
+  height: 200px;
+}
+.slide {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background: #000;
+  line-height: 200px;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+}
+.top {
+  left: 100px;
+  top: -100px;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  background: red;
+}
+.bottom {
+  left: 100px;
+  bottom: -100px;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background: grey;
+}
+.left {
+  left: -100px;
+  bottom: 100px;
+  transform: rotateY(90deg);
+  transform-origin: right;
+  background: green;
+}
+.right {
+  left: 300px;
+  bottom: 100px;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+  background: yellow;
+}
+.front {
+  left: 100px;
+  top: 100px;
+  transform: translateZ(200px);
+  // background: black;
+}
+.back {
+  left: 100px;
+  top: 100px;
+  transform: translateZ(0);
+  background: blue;
+}
+@keyframes rotate-frame {
+  // 0% {
+  //   transform: rotateX(0deg) rotateY(0deg);
+  // }
+  // 10% {
+  //   transform: rotateX(0deg) rotateY(180deg);
+  // }
+  // 20% {
+  //   transform: rotateX(-180deg) rotateY(180deg);
+  // }
+  // 30% {
+  //   transform: rotateX(-360deg) rotateY(180deg);
+  // }
+  // 40% {
+  //   transform: rotateX(-360deg) rotateY(360deg);
+  // }
+  // 50% {
+  //   transform: rotateX(-180deg) rotateY(360deg);
+  // }
+  // 60% {
+  //   transform: rotateX(90deg) rotateY(180deg);
+  // }
+  // 70% {
+  //   transform: rotateX(0) rotateY(180deg);
+  // }
+  // 80% {
+  //   transform: rotateX(90deg) rotateY(90deg);
+  // }
+  // 90% {
+  //   transform: rotateX(90deg) rotateY(0);
+  // }
+  // 100% {
+  //   transform: rotateX(0) rotateY(0);
+  // }
+  0% {
+    transform: rotate3D(1,1,1,0deg);
   }
+  100% {
+    transform: rotate3D(1,1,1,360deg);
+  }
+}
+.container {
+  animation: rotate-frame 30s linear infinite;
+}
+
+.letter {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: myletter 3s infinite linear;
+}
+@keyframes myletter {
+  0% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+.tell {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #56b5ea;
+  font-family: STKaiti;
 }
 </style>
