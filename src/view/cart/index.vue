@@ -1,36 +1,37 @@
 <template>
-  <div class='bg'>
+  <div class="bg">
+    <audio class="success" src="../../../public/2106448377.mp3"></audio>
     <div class="rect-wrap">
       <!-- //舞台元素，设置perspective，让其子元素获得透视效果。 -->
       <div class="container">
         <!-- //容器，设置transform-style: preserve-3d，让其子元素在3D空间呈现 -->
         <div class="top slide">
-          <img class="size" src="../../images/girl1.jpg" alt="">
+          <img class="size" src="../../images/girl1.jpg" alt />
         </div>
         <!-- //立方体的六个面 -->
         <div class="bottom slide">
-          <img class="size" src="../../images/girl2.jpg" alt="">
+          <img class="size" src="../../images/girl2.jpg" alt />
         </div>
         <div class="left slide">
-          <img class="size" src="../../images/星空.jpg" alt="">
+          <img class="size" src="../../images/星空.jpg" alt />
         </div>
         <div class="right slide">
-          <img class="size" src="../../images/情侣.jpg" alt="">
+          <img class="size" src="../../images/情侣.jpg" alt />
         </div>
         <div class="front slide">
-          <img class="size" src="../../images/love1.jpg" alt="">
+          <img class="size" src="../../images/love1.jpg" alt />
         </div>
         <div class="back slide">
-          <img class="size" src="../../images/星空.jpg" alt="">
+          <img class="size" src="../../images/星空.jpg" alt />
         </div>
       </div>
     </div>
 
-    <div class='letter' @click='tolove'>
-      <img src="../../images/信.png" alt="">
+    <div class="letter" @click="tolove">
+      <img src="../../images/信.png" alt />
     </div>
 
-    <div class='tell'>我想告诉你</div>
+    <div class="tell">我想告诉你</div>
   </div>
 </template>
 
@@ -53,7 +54,7 @@ export default {
 
   methods: {
     tolove() {
-      this.$router.push('love');
+      this.$router.push("love");
     }
   }
 };
@@ -62,7 +63,7 @@ export default {
 <style lang="less">
 .bg {
   height: 100vh;
-  background-image: url('../../images/背景2.jpg');
+  background-image: url("../../images/背景2.jpg");
   background-size: cover;
 }
 .rect-wrap {
@@ -162,13 +163,14 @@ export default {
   //   transform: rotateX(0) rotateY(0);
   // }
   0% {
-    transform: rotate3D(1,1,1,0deg);
+    transform: rotate3D(1, 1, 1, 0deg);
   }
   100% {
-    transform: rotate3D(1,1,1,360deg);
+    transform: rotate3D(1, 1, 1, 360deg);
   }
 }
 .container {
+  -webkit-animation: rotate-frame 30s linear infinite;
   animation: rotate-frame 30s linear infinite;
 }
 
@@ -183,6 +185,7 @@ export default {
   justify-content: center;
   align-items: center;
   animation: myletter 3s infinite linear;
+  -webkit-animation: myletter 3s infinite linear;
 }
 @keyframes myletter {
   0% {

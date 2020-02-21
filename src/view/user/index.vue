@@ -187,6 +187,7 @@ export default {
 }
 .show {
   animation: myshow 3s;
+  -webkit-animation: myshow 3s;
 }
 @keyframes myshow {
   0% {

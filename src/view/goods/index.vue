@@ -127,6 +127,7 @@ export default {
 .loginbtn1 {
   // transform: rotate(70deg);
   animation: myfirst 6s infinite linear;
+  -webkit-animation: myfirst 6s infinite linear;
 }
 @keyframes myfirst {
   0% {
