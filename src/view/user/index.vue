@@ -10,11 +10,11 @@
     <div v-show="seven" class="love_text show">和你在一起</div>
     <div v-show="eigh" class="love_text girlfriend show">做我女朋友好不好</div>
     <div v-show="nine" class="check show">
-      <div class="button ok">
-        <span class="pink" @click="love">❤</span>好
+      <div class="button ok"  @click="love">
+        <span class="pink">❤</span>好
         <span class="pink">❤</span>
       </div>
-      <div v-show="nolove" class="button no" @click='Donlove'>不好</div>
+      <div v-if="nolove" class="button no" @click='Donlove'>不好</div>
     </div>
     <div v-show="kai" class="kai" @click="open">点</div>
 
@@ -62,6 +62,7 @@ export default {
 
   methods: {
     love() {
+      console.log(123)
       Dialog.alert({
         message: "快来告诉我叭，爱你❤"
       }).then(() => {});
