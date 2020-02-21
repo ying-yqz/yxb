@@ -98,40 +98,34 @@ export default {
   top: -100px;
   transform: rotateX(-90deg);
   transform-origin: bottom;
-  background: red;
 }
 .bottom {
   left: 100px;
   bottom: -100px;
   transform: rotateX(90deg);
   transform-origin: top;
-  background: grey;
 }
 .left {
   left: -100px;
   bottom: 100px;
   transform: rotateY(90deg);
   transform-origin: right;
-  background: green;
 }
 .right {
   left: 300px;
   bottom: 100px;
   transform: rotateY(-90deg);
   transform-origin: left;
-  background: yellow;
 }
 .front {
   left: 100px;
   top: 100px;
   transform: translateZ(200px);
-  // background: black;
 }
 .back {
   left: 100px;
   top: 100px;
   transform: translateZ(0);
-  background: blue;
 }
 @keyframes rotate-frame {
   // 0% {
