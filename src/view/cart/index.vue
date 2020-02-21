@@ -2,8 +2,8 @@
   <div class="bg">
     <!-- <audio class="success" src="../../../public/2106448377.mp3"></audio> -->
     <audio id="audio" autoplay='autoplay' loop='loop'>
-      <source src="../../../public/2106448377.mp3" type="audio/ogg">
-      <source src="../../../public/2106448377.mp3" type="audio/mpeg">
+      <source src="../../../public/01 - Town of Windmill.mp3" type="audio/ogg">
+      <source src="../../../public/01 - Town of Windmill.mp3" type="audio/mpeg">
     </audio>
     <div class="rect-wrap">
       <!-- //舞台元素，设置perspective，让其子元素获得透视效果。 -->

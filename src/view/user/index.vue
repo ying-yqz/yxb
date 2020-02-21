@@ -1,6 +1,9 @@
 <template>
   <div class="love_you">
-    
+    <audio id="audio" autoplay='autoplay' loop='loop'>
+      <source src="../../../public/2106448377.mp3" type="audio/ogg">
+      <source src="../../../public/2106448377.mp3" type="audio/mpeg">
+    </audio>
     <div v-show="one" class="love_text top_text show">我想成为你的最常访问</div>
     <div v-show="two" class="love_text show">你的聊天顶置</div>
     <div v-show="three" class="love_text show">你的特别关注</div>
